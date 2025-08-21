@@ -11,11 +11,8 @@ app.get('/', (req, res) => {
 
 app.use(routes);
 
-app.use((err, req, res, next) => {
-  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+app.use(( req, res) => {
     return res.status(400).json({ error: 'JSON inválido en la solicitud' });
-  }
-  next();
 });
 
 
