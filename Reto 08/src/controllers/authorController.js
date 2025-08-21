@@ -83,7 +83,7 @@ async function updateAuthor(req, res) {
 
 async function deleteAuthor(req, res) {
     try {
-        const { id } = req.params
+        const id = req.params.id;
 
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ error: "ID inválido" });
